@@ -29,7 +29,7 @@ fn = () => {
     let resultado = 0;
     resultado = ((Math.pow(lambda, x)) * (Math.pow(Math.E, (lambda) * -1))) / (factorial(x));
     console.log(resultado);
-    output.innerHTML = resultado>0.0001 ? `P(X|λ) = ${resultado.toFixed(4)}`:`P(X|λ) = ${resultado}`
+    output.innerHTML = resultado>0.0001 ? `P(X = ${x}|λ = ${lambda})= ${resultado.toFixed(4)}`:`P(X = ${x}|λ = ${lambda})= ${resultado}`
     window.scrollTo(0, 10000);
 
 }
