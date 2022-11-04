@@ -37,8 +37,8 @@ fn = () => {
 borrar = () =>
 {
     console.clear();
-    document.getElementById("inputX").value = "0";
-    document.getElementById("inputLambda").value = "0";
+    document.getElementById("inputX").value = "1";
+    document.getElementById("inputLambda").value = "1";
     document.getElementById("resultado").innerHTML = "";
 }
 
