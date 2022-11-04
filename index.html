@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Poisson</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h5>La distribución de Poisson</h5>
+        <p>
+            La <em>distribución de Poisson</em> se usa para determinar la probabilidad de la ocurrencia de un número determinado de eventos cuando éstos ocurren
+            en un continuo de espacio o tiempo. A este proceso se le llama <em>proceso de Poisson</em>; es parecido al proceso de Bernoulli, excepto que los eventos
+            ocurren a lo largo de un continuo (por ejemplo, un intervalo de tiempo) y que no hay ensayos explícitos. Un ejemplo de proceso de este tipo
+            es la entrada de llamadas a un comnutador telefónico. Como en el caso del proceso de Bernoulli, se supone que los eventos son independientes
+            y el proceso es estacionario.
+
+            Para determinar la probabilidad de que ocurra un número determinado de eventos en un proceso de Poisson sólo se requiere un valor: el numero 
+            medio de eventos a largo plazo en un lapso específico o en una dimensión de espacio que interese. Por lo general esta media se representa por λ 
+            (letra griega lambda). La formula para determinar la probabilidad de un número determinado X de éxitos en una distribución de Poisson es
+            <div align="center"><img src="FORMULA.JPG"></div>
+        </p>
+
+
+
+
+
+
+        <form id="formulario">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Valor de X</label>
+                <input type="number" min="0" value="0" class="form-control" id="inputX" name="inputX"
+                    aria-describedby="" placeholder="Debera introducir el valor de la variable X aquí">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Valor de λ</label>
+                <input type="number" min="0" value="0" class="form-control" id="inputLambda" name="inputLambda"
+                    placeholder="Debera introducir el valor de la variable λ aquí">
+            </div>
+            <!-- <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <input type="button" value="Calcular" class="btn btn-primary" id="submit" onclick="fn()">
+        </form>
+
+        
+        
+       
+
+
+        <p id="resultado"></p>
+
+
+    </div>
+</body>
+
+</html>
