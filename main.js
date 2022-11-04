@@ -11,16 +11,16 @@ fn = () => {
     let lambda = document.getElementById("inputLambda").value;
     let output = document.getElementById("resultado");
     if (x != Math.round(x)) {
-        output.innerHTML = ("La variable 'X' debe ser entera");
+        output.innerHTML = ("La variable 'X' debe ser entera");window.scrollTo(0, 1000);
         return 0;
     }
     if (x < 0 || lambda < 0) {
-        output.innerHTML = ("Las variables deben ser mayor a 0");
+        output.innerHTML = ("Las variables deben ser mayor a 0");window.scrollTo(0, 1000);
         return 0;
     }
     if(document.getElementById("inputX").value==""||document.getElementById("inputLambda").value=="")
     {
-        output.innerHTML = ("Debe ingresar datos");
+        output.innerHTML = ("Debe ingresar datos");window.scrollTo(0, 1000);
         return 0;
     }
     // x = Math.round(x);
