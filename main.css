@@ -6,10 +6,10 @@
     font-size: 7vh;
     font-weight: bold;
     text-align: center;
-
+    overflow-x: auto;
 }
 h5 {
-    margin-top: 40px;
+    font-weight: 600 !important;
     text-align: center;
 }
 #top {
