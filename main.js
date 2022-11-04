@@ -10,21 +10,36 @@ fn = () => {
     let x = document.getElementById("inputX").value;
     let lambda = document.getElementById("inputLambda").value;
     let output = document.getElementById("resultado");
-    if(x!=Math.round(x))
+    if (x != Math.round(x)) {
+        output.innerHTML = ("La variable 'X' debe ser entera");
+        return 0;
+    }
+    if (x < 0 || lambda < 0) {
+        output.innerHTML = ("Las variables deben ser mayor a 0");
+        return 0;
+    }
+    if(document.getElementById("inputX").value==""||document.getElementById("inputLambda").value=="")
     {
-        alert("Error, la variable 'X' no puede tener decimales");
+        output.innerHTML = ("Debe ingresar datos");
         return 0;
     }
     // x = Math.round(x);
     // lambda = Math.round(lambda);
     let resultado = 0;
-    resultado = ((Math.pow(lambda,x))*(Math.pow(Math.E,(lambda)*-1)))/(factorial(x));
+    resultado = ((Math.pow(lambda, x)) * (Math.pow(Math.E, (lambda) * -1))) / (factorial(x));
     console.log(resultado);
     output.innerHTML = `P(X|λ) = ${resultado.toFixed(4)}`;
-    
+    window.scrollTo(0, 1000);
+
 }
 
-
+borrar = () =>
+{
+    console.clear();
+    document.getElementById("inputX").value = "";
+    document.getElementById("inputLambda").value = "";
+    document.getElementById("resultado").innerHTML = "";
+}
 
 
 

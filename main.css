@@ -1,9 +1,11 @@
-#submit {
+.submit {
     margin-top: 5px;
 }
-.vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-  
-    align-items: center;
-  }
+
+#resultado {
+    font-size: 7vh;
+    font-weight: bold
+}
+h5 {
+    margin-top: 40px;
+}

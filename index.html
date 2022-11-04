@@ -30,16 +30,23 @@
     <div class="container">
         <h5>La distribución de Poisson</h5>
         <p>
-            La <em>distribución de Poisson</em> se usa para determinar la probabilidad de la ocurrencia de un número determinado de eventos cuando éstos ocurren
-            en un continuo de espacio o tiempo. A este proceso se le llama <em>proceso de Poisson</em>; es parecido al proceso de Bernoulli, excepto que los eventos
-            ocurren a lo largo de un continuo (por ejemplo, un intervalo de tiempo) y que no hay ensayos explícitos. Un ejemplo de proceso de este tipo
-            es la entrada de llamadas a un comnutador telefónico. Como en el caso del proceso de Bernoulli, se supone que los eventos son independientes
+            La <em>distribución de Poisson</em> se usa para determinar la probabilidad de la ocurrencia de un número
+            determinado de eventos cuando éstos ocurren
+            en un continuo de espacio o tiempo. A este proceso se le llama <em>proceso de Poisson</em>; es parecido al
+            proceso de Bernoulli, excepto que los eventos
+            ocurren a lo largo de un continuo (por ejemplo, un intervalo de tiempo) y que no hay ensayos explícitos. Un
+            ejemplo de proceso de este tipo
+            es la entrada de llamadas a un comnutador telefónico. Como en el caso del proceso de Bernoulli, se supone
+            que los eventos son independientes
             y el proceso es estacionario.
 
-            Para determinar la probabilidad de que ocurra un número determinado de eventos en un proceso de Poisson sólo se requiere un valor: el numero 
-            medio de eventos a largo plazo en un lapso específico o en una dimensión de espacio que interese. Por lo general esta media se representa por λ 
-            (letra griega lambda). La formula para determinar la probabilidad de un número determinado X de éxitos en una distribución de Poisson es
-            <div align="center"><img src="FORMULA.JPG"></div>
+            Para determinar la probabilidad de que ocurra un número determinado de eventos en un proceso de Poisson sólo
+            se requiere un valor: el numero
+            medio de eventos a largo plazo en un lapso específico o en una dimensión de espacio que interese. Por lo
+            general esta media se representa por λ
+            (letra griega lambda). La formula para determinar la probabilidad de un número determinado X de éxitos en
+            una distribución de Poisson es
+        <div align="center"><img src="FORMULA.JPG"></div>
         </p>
 
 
@@ -50,31 +57,69 @@
         <form id="formulario">
             <div class="form-group">
                 <label for="exampleInputEmail1">Valor de X</label>
-                <input type="number" min="0" value="0" class="form-control" id="inputX" name="inputX"
+                <input type="number" min="0" value="2" class="form-control" id="inputX" name="inputX"
                     aria-describedby="" placeholder="Debera introducir el valor de la variable X aquí">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Valor de λ</label>
-                <input type="number" min="0" value="0" class="form-control" id="inputLambda" name="inputLambda"
+                <input type="number" min="0" value="5" class="form-control" id="inputLambda" name="inputLambda"
                     placeholder="Debera introducir el valor de la variable λ aquí">
             </div>
             <!-- <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div> -->
-            <input type="button" value="Calcular" class="btn btn-primary" id="submit" onclick="fn()">
+            <input type="button" value="Calcular" class="btn btn-primary submit" onclick="fn()"><input type="button" value="Borrar" class="btn btn-danger submit" onclick="borrar()">
         </form>
 
-        
-        
-       
+
+
+
 
 
         <p id="resultado"></p>
 
 
+
+
+
+        <!-- <div class="card">
+            <div class="card-body">
+                © 2022 Luis Mario López Reyes
+            </div>
+        </div> -->
+        
     </div>
+    <footer class="text-center text-white" style="background-color: #45637d;">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!-- Section: Iframe -->
+          <section class="">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    class="shadow-1-strong rounded"
+                    src="https://www.youtube.com/embed/vjF_lPf1AmI"
+                    title="YouTube video"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section: Iframe -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="https://github.com/LuisM711?tab=repositories">Luis Mario López Reyes</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 </body>
 
 </html>
