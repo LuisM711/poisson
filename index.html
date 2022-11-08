@@ -125,7 +125,7 @@
     if (x < 0 || lambda < 0) {
       output.innerHTML = ("Las variables deben ser positivas"); window.scrollTo(0, 10000); return 0;
     }
-    if (lambda == 0) {
+    if (lambda === 0) {
       output.innerHTML = ("La variable 'λ' debe ser mayor a 0"); window.scrollTo(0, 10000); return 0;
     }
     if (document.getElementById("inputX").value == "" || document.getElementById("inputLambda").value == "") {
