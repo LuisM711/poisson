@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Poisson</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <p id="top">UNIVERSIDAD AUTONOMA DE SINALOA <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+      fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
+      <path
+        d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z">
+      </path>
+    </svg></p>
+  <div class="container">
+    <h5>La distribución de Poisson</h5>
+    <p>
+      La <em>distribución de Poisson</em> se usa para determinar la probabilidad de la ocurrencia de un número
+      determinado de eventos cuando éstos ocurren
+      en un continuo de espacio o tiempo.
+      La formula para determinar la probabilidad de un número determinado X de éxitos en
+      una distribución de Poisson es</p>
+    <div align="center">
+      <figure class="figure">
+        <img src="FORMULA.JPG" class="figure-img img-fluid rounded" alt="...">
+        <figcaption class="figure-caption">Formula de la distribución de Poisson.</figcaption>
+      </figure>
+    </div>
+    <p>
+      A este proceso se le llama <em>proceso de Poisson</em>. Un
+      ejemplo de proceso de este tipo
+      es la entrada de llamadas a un comnutador telefónico.
+      Como en el caso del proceso de Bernoulli, se supone
+      que los eventos son independientes
+      y el proceso es estacionario.
+      Para determinar la probabilidad de que ocurra un número determinado de eventos en un proceso de Poisson sólo
+      se requiere un valor: el numero
+      medio de eventos a largo plazo en un lapso específico o en una dimensión de espacio que interese. Por lo
+      general esta media se representa por λ
+      (letra griega lambda).
+    </p>
+    <h5>Cálculo de la distribución de Poisson</h5>
+    <form id="formulario">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Valor de X</label>
+        <div class="linea">
+          <select class="form-select" id="select-operador" aria-label="Default select example">
+            <option selected value="1">Igual</option>
+            <option value="2">Menor igual</option>
+            <option value="3">Menor</option>
+          </select><input type="number" inputmode="numeric" pattern="\d*" min="0" value="2" class="form-control"
+            id="inputX" name="inputX" aria-describedby=""
+            placeholder="Debera introducir el valor de la variable X aquí">
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Valor de λ</label>
+        <input type="number" inputmode="numeric" pattern="\d*" min="0" value="5" class="form-control" id="inputLambda"
+          name="inputLambda" placeholder="Debera introducir el valor de la variable λ aquí">
+      </div>
+
+      <input type="button" value="Calcular" class="btn btn-primary submit" onclick="fn()"><input type="button"
+        value="Borrar" class="btn btn-danger submit" id="brr" onclick="borrar()">
+    </form>
+
+    <p id="resultado"></p>
+
+  </div>
+  <footer class="text-center text-white" style="background-color: #45637d;">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Iframe -->
+      <section class="">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6">
+            <div class="ratio ratio-16x9">
+              <iframe class="shadow-1-strong rounded" src="https://www.youtube.com/embed/vjF_lPf1AmI"
+                title="YouTube video" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Iframe -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="https://github.com/LuisM711?tab=repositories">Luis Mario López Reyes</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
+</html>
+<script>
+  fn = () => {
+    console.clear();
+    let x = document.getElementById("inputX").value;
+    let lambda = document.getElementById("inputLambda").value;
+    let output = document.getElementById("resultado");
+    let tipo = document.getElementById("select-operador").value;
+    //console.log(x, lambda);
+    if (x != Math.round(x)) {
+      output.innerHTML = ("La variable 'X' debe ser entera"); window.scrollTo(0, 10000);
+      return 0;
+    }
+    if (x < 0 || lambda < 0) {
+      output.innerHTML = ("Las variables deben ser positivas"); window.scrollTo(0, 10000);
+      return 0;
+    }
+    if (document.getElementById("inputX").value == "" || document.getElementById("inputLambda").value == "") {
+      output.innerHTML = ("Debe ingresar datos validos"); window.scrollTo(0, 10000);
+      return 0;
+    }
+    output.innerHTML = "";
+    let resultado = 0, acumulador = 0;
+    switch (tipo) {
+      case "1":
+        let pasos = [
+          `((Math.pow(${lambda}, ${x})) * (Math.pow(${Math.E}, ${-lambda}))) / (factorial(${x}))`,
+          `((${Math.pow(lambda, x)}) * ${(Math.pow(Math.E, (-lambda)))}) / (${factorial(x)})`,
+          `${((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda))))} / ${(factorial(x))}`,
+          `${((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda)))) / (factorial(x))}`
+        ];
+        // pasos.forEach(element => output.innerHTML += `Paso ${element.value}` + element + "<br>");
+        pasos.forEach((value, index) => output.innerHTML += `<div class = "pasosEnum">Paso ${index == 3 ? ' resuelto' : index + 1}.</div> ` + value + `${index == 3 ? ' = ' + toPercent(value) : ''}` + "<br>");
+        console.log(pasos);
+        break;
+      case "2":
+        for (let i = 0; i <= x; i++) {
+          output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
+          acumulador += poisson(i, lambda);
+        }
+        output.innerHTML += `<div class = "pasosEnum">P(X<=${x}|λ=${lambda}) = ${acumulador} = `+toPercent(acumulador)+"<br></div>";
+        break;
+      case "3":
+      for (let i = 0; i < x; i++) {
+          output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
+          acumulador += poisson(i, lambda);
+        }
+        output.innerHTML += `<div class = "pasosEnum">P(X<${x}|λ=${lambda}) = ${acumulador} = `+toPercent(acumulador)+"<br></div>";
+        break;
+
+      default:
+        break;
+    }
+    resultado = ((Math.pow(lambda, x)) * (Math.pow(Math.E, (lambda) * -1))) / (factorial(x));
+    console.log(resultado);
+    //output.innerHTML = resultado > 0.0001 ? `P(X = ${x}|λ = ${lambda})= ${resultado.toFixed(4)}` : `P(X = ${x}|λ = ${lambda})= ${resultado}`
+    window.scrollTo(0, 10000);
+  }
+  borrar = () => {
+    console.clear();
+    document.getElementById("inputX").value = "1";
+    document.getElementById("inputLambda").value = "1";
+    document.getElementById("resultado").innerHTML = "";
+  }
+  factorial = (num) => {
+    if (num == 0) { return 1; }
+    else { return num * factorial(num - 1); }
+  }
+  poisson = (x, lambda) => {
+    return ((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda)))) / (factorial(x));
+  }
+  toPercent = (point) => {
+    let percent = Number(point * 100).toFixed(1);
+    percent += "%";
+    return percent;
+  }
+</script>
+<style>
+  .submit {
+    margin-top: 5px;
+  }
+
+  #resultado {
+    font-size: 150%;
+    text-align: center;
+    overflow-x: auto;
+  }
+
+  h5 {
+    font-weight: 600 !important;
+    text-align: center;
+  }
+
+  #top {
+    background-color: var(--bs-blue);
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+  }
+
+  #brr {
+    float: right;
+  }
+
+  #select-operador {
+    min-width: 100px;
+    max-width: 140px;
+    width: 50%;
+  }
+
+  #inputX {
+    min-width: 200px;
+  }
+
+  .linea {
+    display: flex;
+  }
+
+  .pasosEnum {
+    font-weight: bold;
+  }
+</style>
