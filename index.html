@@ -157,8 +157,8 @@
         output.innerHTML += `<div class = "pasosEnum">P(X<${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
       case "4":
-        limite = Number(prompt("Hasta que 'X' llege a..."));
-        if (limite <= x || isNaN(limite)) { output.innerHTML = "Límite inválido"; return 0; }
+        limite = (prompt("Hasta que 'X' llegue a..."));
+        if (limite <= x || isNaN(limite)||(limite != Math.round(limite))) { output.innerHTML = "Límite inválido"; return 0; }
         for (let i = Number(x) + 1; i <= limite; i++) {
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
@@ -166,8 +166,8 @@
         output.innerHTML += `<div class = "pasosEnum">P(X>${x} hasta ${limite}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
       case "5":
-        limite = Number(prompt("Hasta que 'X' llege a..."));
-        if (limite < x || isNaN(limite)) { output.innerHTML = "Límite inválido"; return 0; }
+        limite = (prompt("Hasta que 'X' llegue a..."));
+        if (limite < x || isNaN(limite)(limite != Math.round(limite))) { output.innerHTML = "Límite inválido"; return 0; }
         for (let i = Number(x); i <= limite; i++) {
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
