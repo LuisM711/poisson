@@ -65,7 +65,7 @@
             <option value="3">Menor</option>
             <option value="4">Mayor</option>
             <option value="5">Mayor igual</option>
-          </select><input type="number" inputmode="numeric" pattern="\d*" min="0" value="2" class="form-control"
+          </select><input type="number" inputmode="numeric" pattern="\d*" min="0" value="3" class="form-control"
             id="inputX" name="inputX" aria-describedby=""
             placeholder="Debera introducir el valor de la variable X aquí">
         </div>
@@ -73,7 +73,7 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Valor de λ</label>
-        <input type="number" inputmode="numeric" pattern="\d*" min="0" value="5" class="form-control" id="inputLambda"
+        <input type="number" inputmode="numeric" pattern="\d*" min="0" value="4" class="form-control" id="inputLambda"
           name="inputLambda" placeholder="Debera introducir el valor de la variable λ aquí">
       </div>
 
@@ -165,7 +165,7 @@
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
         }
-        output.innerHTML += `<div class = "pasosEnum">P(X>${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
+        output.innerHTML += `<div class = "pasosEnum">P(X>${x} hasta ${limite}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
       case "5":
         limite = Number(prompt("Hasta que 'X' llege a..."));
@@ -174,7 +174,7 @@
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
         }
-        output.innerHTML += `<div class = "pasosEnum">P(X>=${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
+        output.innerHTML += `<div class = "pasosEnum">P(X>=${x} hasta ${limite}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
       default:
         break;
