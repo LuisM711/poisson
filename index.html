@@ -63,6 +63,8 @@
             <option selected value="1">Igual</option>
             <option value="2">Menor igual</option>
             <option value="3">Menor</option>
+            <option value="4">Mayor</option>
+            <option value="5">Mayor igual</option>
           </select><input type="number" inputmode="numeric" pattern="\d*" min="0" value="2" class="form-control"
             id="inputX" name="inputX" aria-describedby=""
             placeholder="Debera introducir el valor de la variable X aquí">
@@ -117,21 +119,20 @@
     let lambda = document.getElementById("inputLambda").value;
     let output = document.getElementById("resultado");
     let tipo = document.getElementById("select-operador").value;
-    //console.log(x, lambda);
     if (x != Math.round(x)) {
-      output.innerHTML = ("La variable 'X' debe ser entera"); window.scrollTo(0, 10000);
-      return 0;
+      output.innerHTML = ("La variable 'X' debe ser entera"); window.scrollTo(0, 10000); return 0;
     }
     if (x < 0 || lambda < 0) {
-      output.innerHTML = ("Las variables deben ser positivas"); window.scrollTo(0, 10000);
-      return 0;
+      output.innerHTML = ("Las variables deben ser positivas"); window.scrollTo(0, 10000); return 0;
+    }
+    if (lambda == 0) {
+      output.innerHTML = ("La variable 'λ' debe ser mayor a 0"); window.scrollTo(0, 10000); return 0;
     }
     if (document.getElementById("inputX").value == "" || document.getElementById("inputLambda").value == "") {
-      output.innerHTML = ("Debe ingresar datos validos"); window.scrollTo(0, 10000);
-      return 0;
+      output.innerHTML = ("Debe ingresar datos validos"); window.scrollTo(0, 10000); return 0;
     }
-    output.innerHTML = "";
-    let resultado = 0, acumulador = 0;
+    output.innerHTML = ""; let resultado = 0, acumulador = 0, limite = 0;
+
     switch (tipo) {
       case "1":
         let pasos = [
@@ -140,7 +141,6 @@
           `${((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda))))} / ${(factorial(x))}`,
           `${((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda)))) / (factorial(x))}`
         ];
-        // pasos.forEach(element => output.innerHTML += `Paso ${element.value}` + element + "<br>");
         pasos.forEach((value, index) => output.innerHTML += `<div class = "pasosEnum">Paso ${index == 3 ? ' resuelto' : index + 1}.</div> ` + value + `${index == 3 ? ' = ' + toPercent(value) : ''}` + "<br>");
         console.log(pasos);
         break;
@@ -149,22 +149,38 @@
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
         }
-        output.innerHTML += `<div class = "pasosEnum">P(X<=${x}|λ=${lambda}) = ${acumulador} = `+toPercent(acumulador)+"<br></div>";
+        output.innerHTML += `<div class = "pasosEnum">P(X<=${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
       case "3":
-      for (let i = 0; i < x; i++) {
+        for (let i = 0; i < x; i++) {
           output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
           acumulador += poisson(i, lambda);
         }
-        output.innerHTML += `<div class = "pasosEnum">P(X<${x}|λ=${lambda}) = ${acumulador} = `+toPercent(acumulador)+"<br></div>";
+        output.innerHTML += `<div class = "pasosEnum">P(X<${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
         break;
-
+      case "4":
+        limite = Number(prompt("Hasta que 'X' llege a..."));
+        if (limite <= x || isNaN(limite)) { output.innerHTML = "Límite inválido"; return 0; }
+        for (let i = Number(x) + 1; i <= limite; i++) {
+          output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
+          acumulador += poisson(i, lambda);
+        }
+        output.innerHTML += `<div class = "pasosEnum">P(X>${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
+        break;
+      case "5":
+        limite = Number(prompt("Hasta que 'X' llege a..."));
+        if (limite < x || isNaN(limite)) { output.innerHTML = "Límite inválido"; return 0; }
+        for (let i = Number(x); i <= limite; i++) {
+          output.innerHTML += `P(X = ${i}|λ = ${lambda})= ${poisson(i, lambda)}` + '<br>';
+          acumulador += poisson(i, lambda);
+        }
+        output.innerHTML += `<div class = "pasosEnum">P(X>=${x}|λ=${lambda}) = ${acumulador} = ` + toPercent(acumulador) + "<br></div>";
+        break;
       default:
         break;
     }
     resultado = ((Math.pow(lambda, x)) * (Math.pow(Math.E, (lambda) * -1))) / (factorial(x));
     console.log(resultado);
-    //output.innerHTML = resultado > 0.0001 ? `P(X = ${x}|λ = ${lambda})= ${resultado.toFixed(4)}` : `P(X = ${x}|λ = ${lambda})= ${resultado}`
     window.scrollTo(0, 10000);
   }
   borrar = () => {
@@ -181,7 +197,7 @@
     return ((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda)))) / (factorial(x));
   }
   toPercent = (point) => {
-    let percent = Number(point * 100).toFixed(1);
+    let percent = Number(point * 100).toFixed(2);
     percent += "%";
     return percent;
   }
