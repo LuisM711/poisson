@@ -132,7 +132,6 @@
       output.innerHTML = ("Debe ingresar datos validos"); window.scrollTo(0, 10000); return 0;
     }
     output.innerHTML = ""; let resultado = 0, acumulador = 0, limite = 0;
-
     switch (tipo) {
       case "1":
         let pasos = [
@@ -142,7 +141,6 @@
           `${((Math.pow(lambda, x)) * (Math.pow(Math.E, (-lambda)))) / (factorial(x))}`
         ];
         pasos.forEach((value, index) => output.innerHTML += `<div class = "pasosEnum">Paso ${index == 3 ? ' resuelto' : index + 1}.</div> ` + value + `${index == 3 ? ' = ' + toPercent(value) : ''}` + "<br>");
-        console.log(pasos);
         break;
       case "2":
         for (let i = 0; i <= x; i++) {
@@ -180,7 +178,6 @@
         break;
     }
     resultado = ((Math.pow(lambda, x)) * (Math.pow(Math.E, (lambda) * -1))) / (factorial(x));
-    console.log(resultado);
     window.scrollTo(0, 10000);
   }
   borrar = () => {
